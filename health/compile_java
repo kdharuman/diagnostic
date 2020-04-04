@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rm -f *.class
+
+for file in `ls *.java`; do
+
+	javac -d WEB-INF/classes $file
+
+	if [ $? -eq 0 ]; then
+		echo "$file compiled successfully";
+	else
+		echo "$file compilation failure";
+	fi
+done
